@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <base href="{{base_url}}static/xueyigou/" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="style/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <nav class="ralpage">
+        <div class="ralpagei">
+            <div class="brand"><a href="#"><img src="images/logo-c.png"></a></div>
+            <h3>是否已登录？？</h3>
+        </div>
+    </nav>
+    <section class="ralmain" style="background-image:url(images/u_bg_ral.jpg);">
+        <div class="mark"></div>
+        <div class="regbox ralmainr">
+            <h3>dddddd</h3>
+            {{username}}
+            {{#if username}}
+            <h5>登录了，用户名：{{username}}</h5>
+            {{else}}
+            <h5>还没登录</h5>
+            {{/if}}
+
+
+        </div>
+    </section>
+
+    <script>
+        // compile the template
+        var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+        // execute the compiled template and print the output to the console
+        console.log(template({ doesWhat: "rocks!" }));
+
+        Handlebars.registerHelper('userOrDefault', function (object, propertyName, defaultValue, options) {
+            var result = options.lookupProperty(object, propertyName)
+            if (result != null) {
+                return result
+            }
+            return defaultValue
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

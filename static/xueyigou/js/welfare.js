@@ -1,0 +1,2 @@
+/*welfcounter*/
+$('.counter').countUp();
