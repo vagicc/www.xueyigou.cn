@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>个人资料-企业用户</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script src="js/rem.js"></script>
+</head>
+<body>
+    <header class="haedert">个人资料</header>
+    <section class="uploading-head-img">
+        <input id="up-head" type="file">
+        <div class="head-img"></div>
+        <p>点击上传头像</p>
+    </section>
+    <section class="com-user-info">
+        <div class="comm-input comm-lr">
+            <div class="lable">昵称</div>
+            <input placeholder="请填写昵称" value="济南大学设计创新研究院">
+        </div>
+        <h3 class="com-info-title">首页轮播图</h3>
+        <div class="uploading-img">
+            <span id="uploading-img-icon">+</span>
+            <input id="photo" class="uploading-img-input" type="file">
+            <img id="photoEcho">
+        </div>
+        <p class="uploading-image-hint uploading-s">点击上传第1张轮播图</p>
+        <div class="uploading-img">
+            <span id="uploading-img-icon">+</span>
+            <input id="photo" class="uploading-img-input" type="file">
+            <img id="photoEcho">
+        </div>
+        <p class="uploading-image-hint uploading-s">点击上传第2张轮播图</p>
+        <div class="uploading-img">
+            <span id="uploading-img-icon">+</span>
+            <input id="photo" class="uploading-img-input" type="file">
+            <img id="photoEcho">
+        </div>
+        <p class="uploading-image-hint uploading-s">点击上传第3张轮播图</p>
+        <h3 class="com-info-title">内页背景图</h3>
+        <div class="uploading-img">
+            <span id="uploading-img-icon">+</span>
+            <input id="photo" class="uploading-img-input" type="file">
+            <img id="photoEcho">
+        </div>
+        <p class="uploading-image-hint uploading-s">点击上传内页背景图</p>
+        <div class="ord-readme">
+            <textarea rows="3" placeholder="请填写人才理念"></textarea>
+        </div>
+        <h3 class="com-info-title">企业介绍</h3>
+        <div class="ord-readme company-readme">
+            <textarea rows="3" placeholder="请输入企业介绍..."></textarea>
+        </div>
+    </section>
+    <section class="com-touch-info-container">
+        <div class="com-touch-info">
+            <div class="comm-input comm-lr">
+                <div class="lable">电话</div>
+                <input value="18888359919" placeholder="请填写电话号码">
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable">QQ</div>
+                <input value="398126214" placeholder="请填写QQ">
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable">微信</div>
+                <input value="wtf008" placeholder="请填写微信">
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable com-touch-info-gap nowarp">选择现居地 省份 / 城市 / 地区</div>
+                <input type="text" id="ord-city-picker" readonly="" data-code="110101" data-codes="110000,110000,110101">
+                <i class="iconfont icon-three"></i>
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable com-touch-info-gap">具体地址</div>
+                <input value="山东省济南市市中区南辛庄西路253号济南大学创业学院A座一楼东厅" placeholder="请填写具体地址">
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable com-touch-info-gap nowarp">地图定位</div>
+                <div class="lol">
+                    <input id="lng" disabled>
+                    <p class="nowarp">经度</p>
+                    <input id="lat" disabled>
+                    <p class="nowarp">纬度</p>
+                </div>
+            </div>
+            <div class="comm-input comm-lr">
+                <div class="lable com-touch-info-gap">点选定位</div>
+                <div class="com-touch-info-site">
+                    <input id="cityName" placeholder="输入地址进行检索">
+                    <button onclick="theLocation()">检索</button>
+                </div>
+            </div>
+            <div id="allmap"></div>
+            <button class="comm-btn com-touch-info-btn">确认保存</button>
+        </div>
+    </section>
+
+
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery-weui.min.js"></script>
+    <script type="text/javascript" src="js/city-picker.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?key=&v=1.3&services=true"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=1.3&ak=&services=true&t=20210201021021"></script>
+    <link rel="stylesheet" type="text/css" href="https://api.map.baidu.com/res/13/bmaps.css">
+    <script src="js/comUserInfo.js"></script>
+    
+
+    <div class="modelbox"></div>
+
+
+    <!-- tabbar -->
+    <div class="placeh"></div>
+    <footer class="footer">
+        <div class="navlist">
+            <a href="#">
+                <i class="iconfont icon-home"></i>
+                <p>首页</p>
+            </a>
+        </div>
+        <div class="navlist">
+            <a href="#">
+                <i class="iconfont icon-catgory"></i>
+                <p>商品</p>
+            </a>
+        </div>
+        <div class="navlist">
+            <a href="#">
+                <i class="iconfont icon-service"></i>
+                <p>服务</p>
+            </a>
+        </div>
+        <div class="navlist">
+            <a href="#">
+                <i class="iconfont icon-cart"></i>
+                <p>购物车</p>
+            </a>
+        </div>
+        <div class="navlist">
+            <a href="#">
+                <i class="iconfont icon-user"></i>
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

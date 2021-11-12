@@ -34,6 +34,10 @@ diesel = { version="1.4.6",features=["extras","postgres","r2d2"] }
 # 加载环境配置文件.env
 dotenv = "0.15.0"
 
+
+#  diesel中的numeric类型用到 Nullable<Decimal>
+bigdecimal = "0.3.0"
+
 # 错误处理
 #thiserror = "1.0.24"
 

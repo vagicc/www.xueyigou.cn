@@ -1,4 +1,5 @@
 use crate::routes::admin_route;
+use crate::routes::approve_route;
 use crate::routes::home_route;
 use crate::routes::link_route;
 use crate::routes::login_route;
@@ -19,6 +20,9 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
     let logout = logout_route::logout(pgsession.clone());
     let signup = signup_route::signup().or(signup_route::do_signup(pgsession.clone()));
 
+    //资质申请
+    let approve = approve_route::do_approve(pgsession.clone());
+
     let admin = admin_route::add_admin();
     let link = link_route::test();
     let test = test_route::is_login(pgsession.clone())
@@ -30,6 +34,7 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(login)
         .or(logout)
         .or(signup)
+        .or(approve)
         .or(admin)
         .or(link)
         .or(test);
