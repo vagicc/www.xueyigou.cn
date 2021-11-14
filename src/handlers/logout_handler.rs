@@ -4,8 +4,6 @@ use handlebars::to_json;
 use serde_json::value::Map;
 use warp::{Rejection, Reply};
 
-type ResultWarp<T> = std::result::Result<T, Rejection>;
-
 pub async fn logout(
     mut session: Session,
 ) -> std::result::Result<warp::http::Response<&'static str>, Rejection> {

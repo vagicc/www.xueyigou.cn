@@ -21,7 +21,8 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
     let signup = signup_route::signup().or(signup_route::do_signup(pgsession.clone()));
 
     //资质申请
-    let approve = approve_route::do_approve(pgsession.clone());
+    let approve = approve_route::qualification(pgsession.clone())
+        .or(approve_route::do_approve(pgsession.clone()));
 
     let admin = admin_route::add_admin();
     let link = link_route::test();

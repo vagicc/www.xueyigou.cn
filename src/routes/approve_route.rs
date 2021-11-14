@@ -1,10 +1,18 @@
-use bytes::BufMut;
 use crate::handlers::approve_handler;
-use futures::TryStreamExt;
-use warp::multipart::{FormData, Part};
-use warp::{filters::BoxedFilter, Filter};
-use warp::{Rejection, Reply};
 use crate::session::Session;
+use warp::{filters::BoxedFilter, Filter};
+
+/* 资质申请 */
+pub fn qualification(
+    s: BoxedFilter<(Session,)>,
+) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+    let sfn = move || s.clone();
+    warp::get()
+        .and(warp::path("qualification"))
+        .and(warp::path::end())
+        .and(sfn())
+        .and_then(approve_handler::qualification)
+}
 
 pub fn do_approve(
     s: BoxedFilter<(Session,)>,

@@ -78,7 +78,18 @@ pub async fn do_login_new(
                         <h1>登录成功!</h1>
                       </body>
                     </html>";
-                let html = tem.body(template);
+
+                let mut data = Map::new();
+                data.insert("title".to_string(), to_json("title传过来的值"));
+                // data.insert("path".to_string(), to_json("login"));
+                data.insert(
+                    "message".to_string(),
+                    to_json("登录成功！三秒后自动跳转到首页"),
+                );
+                let template = to_html("refresh.html", data);
+                let temp = string_to_static_str(template);
+
+                let html = tem.body(temp);
                 println!("登录成功，cookie:{}", cookie);
                 return Ok(html.unwrap());
             } else {

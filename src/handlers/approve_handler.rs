@@ -12,6 +12,46 @@ use std::fmt::Debug;
 use warp::multipart::{FormData, Part};
 use warp::{Rejection, Reply};
 
+/* 输出首页 */
+pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection> {
+    let mut data = Map::new();
+    let mut html = String::new();
+    if let Some(user) = session.user() {
+        println!("已登录，正常流程");
+        html = "登录了".to_string();
+
+        let mut html_name = "";
+        //用户类型：1普通用户；2设计师用户；3企业用户
+        if user.user_type == 1 {
+            html_name = "login.html";      //路到是否从普通用户切换（企业，设计师）
+        } else if user.user_type == 2 {
+            html_name = "approve_designer.html";   //设计师用户
+        } else if user.user_type == 3 {
+            html_name = "approve_company.html";  //企业用户
+        }
+        
+    } else {
+        println!("没登录提示登录并跳转到登录页");
+        data.insert("title".to_string(), to_json("title传过来的值"));
+        data.insert("path".to_string(), to_json("login"));
+        data.insert("message".to_string(), to_json("请登录后再进行资质申请"));
+        html = to_html("refresh.html", data);
+        // Ok(warp::reply::html(html))
+    }
+
+    Ok(warp::reply::html(html))
+
+    /* 先区别是企业投资申请还是设计师，如是普通用户，再做 */
+    /* 还没开始做 */
+
+    // let id = 32;
+    // if id != 0 {
+    //     Ok(warp::reply::html(html))
+    // } else {
+    //     Err(warp::reject::not_found())
+    // }
+}
+
 #[derive(Debug)]
 struct ServerError {
     message: String,
@@ -116,7 +156,22 @@ pub async fn do_approve(session: Session, form: FormData) -> Result<impl Reply, 
         add_time: Some(now_date_time),
     };
 
-    let _insert_id = to_approve_data.insert(session.db());
+    let insert_id = to_approve_data.insert(session.db());
 
-    Ok("文件上传成功!")
+    let mut html: String = String::new();
+
+    if insert_id != 0 {
+        println!("提着企业设计师申请成功，输出登录");
+
+        let mut data = Map::new();
+        data.insert(
+            "msg".to_string(),
+            to_json("恭喜！！！注册及提交资质申请成功，请你登录查看审批详情"),
+        );
+        html = to_html_single("login.html", data);
+    } else {
+        html = "资质提交失败".to_string();
+    }
+
+    Ok(warp::reply::html(html))
 }
