@@ -1,4 +1,4 @@
-use crate::models::approve_model::NewToApprove;
+use crate::models::approve_model::*;
 use crate::multipart_form::*;
 use crate::session::Session;
 use crate::template::*;
@@ -17,19 +17,54 @@ pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection
     let mut data = Map::new();
     let mut html = String::new();
     if let Some(user) = session.user() {
-        println!("已登录，正常流程");
+        println!("已登录，正常流程,user:{:#?}", user);
+
         html = "登录了".to_string();
 
         let mut html_name = "";
         //用户类型：1普通用户；2设计师用户；3企业用户
         if user.user_type == 1 {
-            html_name = "login.html";      //路到是否从普通用户切换（企业，设计师）
-        } else if user.user_type == 2 {
-            html_name = "approve_designer.html";   //设计师用户
-        } else if user.user_type == 3 {
-            html_name = "approve_company.html";  //企业用户
+            html_name = "qualification.html"; //路到是否从普通用户切换（企业，设计师）
+            html = "这里欠一个切换用户资质申请的静态页面".to_string();
+        } else {
+            html_name = "qualification_designer.html"; //设计师用户
+            if user.user_type == 3 {
+                html_name = "qualification_company.html";
+            }
+            let option_approve = get_user_approve(user.id, session.db());
+            if let Some(approve) = option_approve {
+                data.insert("title".to_string(), to_json("title传过来的值"));
+                data.insert("user_id".to_string(), to_json(user.id));
+                data.insert("user_type".to_string(), to_json(user.user_type));
+                data.insert("status".to_string(), to_json(approve.status));
+                data.insert("real_name".to_string(), to_json(approve.real_name));
+                data.insert("mobile".to_string(), to_json(approve.mobile));
+                data.insert("identity_card".to_string(), to_json(approve.identity_card));
+
+                if let Some(alipay) = approve.alipay {
+                    data.insert("alipay".to_string(), to_json(alipay));
+                }
+
+                /* 设计师：是否是学生 */
+                if let Some(is_student) = approve.is_student {
+                    data.insert("is_student".to_string(), to_json(is_student));
+                    if is_student {
+                        if let Some(student_certificate) = approve.student_certificate {
+                            data.insert(
+                                "student_certificate".to_string(),
+                                to_json(student_certificate),
+                            );
+                        }
+                    }
+                }
+
+                /* 企业：credit_code */
+                if let Some(credit_code) = approve.credit_code {
+                    data.insert("credit_code".to_string(), to_json(credit_code));
+                }
+            }
+            html = to_html(html_name, data);
         }
-        
     } else {
         println!("没登录提示登录并跳转到登录页");
         data.insert("title".to_string(), to_json("title传过来的值"));

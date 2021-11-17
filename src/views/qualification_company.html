@@ -81,15 +81,32 @@
             <div class="centerrt centertabs">
                 <h3>资质审核</h3>
             </div>
+            {{#unless status}}
             <!--未提交-->
-            <!-- <div class="zztip zztip-01">
-                    <strong>未提交资质！</strong>请上传后提交审核
-                </div> -->
-
+            <div class="zztip zztip-01">
+                <strong>未提交资质！</strong>请上传后提交审核
+            </div>
+            {{else}}
+            <!-- 状态：0默认待审核，-1审核不通过，1审核通过 -->
+            {{#if (eq status 0)}}
+            <!--审核中-->
+            <div class="zztip zztip-01">
+                <strong>资质正在审核中！</strong>请稍后查看审核结果
+            </div>
+            {{/if}}
+            {{#if (eq status -1)}}
+            <!--未通过-->
+            <div class="zztip zztip-02">
+                <strong>资质审核未通过！</strong>请修改后重新提交
+            </div>
+            {{/if}}
+            {{#if (eq status 1)}}
             <!--已通过-->
             <div class="zztip zztip-03">
-                <strong>恭喜你，注册成功！</strong>请提交企业信息进行企业用户资质审核
+                <strong>资质审核已通过！</strong>
             </div>
+            {{/if}}
+            {{/unless}}
             <!--
                     未提交和未通过状态时，表单处于可编辑状态
                     审核中和已通过状态时，表达则为不可编辑状
@@ -103,19 +120,22 @@
                     <li class="ibline">
                         <p class="ibline-l">法人姓名</p>
                         <div class="ibline-r">
-                            <input class="ibline-r comm-input" name="real_name" value="" placeholder="您的真实姓名（必填）">
+                            <input class="ibline-r comm-input" name="real_name" value="{{real_name}}"
+                                placeholder="您的真实姓名（必填）">
                         </div>
                     </li>
-                    <li class="ibline"> 
+                    <li class="ibline">
                         <p class="ibline-l">联系电话</p>
                         <div class="ibline-r">
-                            <input class="ibline-r comm-input" name="mobile" value="" placeholder="您的联系电话（必填）">
+                            <input class="ibline-r comm-input" name="mobile" value="{{mobile}}"
+                                placeholder="您的联系电话（必填）">
                         </div>
                     </li>
                     <li class="ibline">
                         <p class="ibline-l">法人身份证号</p>
                         <div class="ibline-r">
-                            <input class="ibline-r comm-input" name="identity_card" value="" placeholder="您的身份证号（必填）">
+                            <input class="ibline-r comm-input" name="identity_card" value="{{identity_card}}"
+                                placeholder="您的身份证号（必填）">
                         </div>
                     </li>
                     <li class="ibline">
@@ -134,7 +154,8 @@
                     <li class="ibline">
                         <p class="ibline-l">社会信用代码</p>
                         <div class="ibline-r">
-                            <input class="ibline-r comm-input" name="credit_code" value="" placeholder="营业执照统一社会信用代码（必填）">
+                            <input class="ibline-r comm-input" name="credit_code" value="{{credit_code}}"
+                                placeholder="营业执照统一社会信用代码（必填）">
                         </div>
                     </li>
                     <li class="ibline">
@@ -148,11 +169,12 @@
                     <li class="ibline">
                         <p class="ibline-l">支付宝</p>
                         <div class="ibline-r">
-                            <input class="ibline-r comm-input" name="alipay" value="" placeholder="您的支付宝账号，用于提现结算（必填）">
+                            <input class="ibline-r comm-input" name="alipay" value="{{alipay}}"
+                                placeholder="您的支付宝账号，用于提现结算（必填）">
                         </div>
                     </li>
                     <li class="ibline">
-                        <div class="ibline-r"> 
+                        <div class="ibline-r">
                             <input type="hidden" name="user_id" value="{{user_id}}" class="reg-type" required>
                             <input type="hidden" name="user_type" value="{{user_type}}" class="reg-type" required>
 
