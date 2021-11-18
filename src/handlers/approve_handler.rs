@@ -19,7 +19,7 @@ pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection
     if let Some(user) = session.user() {
         println!("已登录，正常流程,user:{:#?}", user);
 
-        html = "登录了".to_string();
+        // html = "登录了".to_string();
 
         let mut html_name = "";
         //用户类型：1普通用户；2设计师用户；3企业用户
@@ -31,11 +31,12 @@ pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection
             if user.user_type == 3 {
                 html_name = "qualification_company.html";
             }
+
+            data.insert("title".to_string(), to_json("title传过来的值"));
+            data.insert("user_id".to_string(), to_json(user.id));
+            data.insert("user_type".to_string(), to_json(user.user_type));
             let option_approve = get_user_approve(user.id, session.db());
             if let Some(approve) = option_approve {
-                data.insert("title".to_string(), to_json("title传过来的值"));
-                data.insert("user_id".to_string(), to_json(user.id));
-                data.insert("user_type".to_string(), to_json(user.user_type));
                 data.insert("status".to_string(), to_json(approve.status));
                 data.insert("real_name".to_string(), to_json(approve.real_name));
                 data.insert("mobile".to_string(), to_json(approve.mobile));

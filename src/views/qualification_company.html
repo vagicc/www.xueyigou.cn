@@ -79,9 +79,15 @@
         </div>
         <div class="ce-right">
             <div class="centerrt centertabs">
-                <h3>资质审核</h3>
+                <h3>资质{{status}}审核</h3>
+                {{#if status}}
+                <!--审核中-->
+                <div class="zztip zztip-01">
+                    <strong>资质正在审核中！</strong>请稍后查看审核结果
+                </div>
+                {{/if}}
             </div>
-            {{#unless status}}
+            {{#unless real_name}}
             <!--未提交-->
             <div class="zztip zztip-01">
                 <strong>未提交资质！</strong>请上传后提交审核
