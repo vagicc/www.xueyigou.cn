@@ -185,8 +185,12 @@
                             <input type="hidden" name="user_id" value="{{user_id}}" class="reg-type" required>
                             <input type="hidden" name="user_type" value="{{user_type}}" class="reg-type" required>
 
+                            <!-- 审核中、与审核通过后不能点保存按纽 -->
+                            {{#if (or (eq status 0) (eq status 1))}}
+                            <button type="submit" class="commonbtn cursornot" disabled>查看</button>
+                            {{else}}
                             <button type="submit" class="commonbtn">保存</button>
-                            <!-- <button type="submit" class="commonbtn cursornot" disabled>保存</button> -->
+                            {{/if}}
                         </div>
 
                     </li>

@@ -11,7 +11,9 @@ use std::collections::HashMap;
 use std::fmt::Debug;
 use warp::multipart::{FormData, Part};
 use warp::{Rejection, Reply};
-
+/*
+资质申请问题，每个用户只能有一条记录。这里应该在接收表单时做判断，还没做---------------------
+ */
 /* 输出首页 */
 pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection> {
     let mut data = Map::new();
