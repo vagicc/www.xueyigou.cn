@@ -46,7 +46,6 @@ CREATE TABLE goods(
     "sku" CHARACTER VARYING(10) NOT NULL,
     "inventory" INTEGER NOT NULL DEFAULT 0,
     "goods_img" CHARACTER VARYING(255),
-    "goods_img" CHARACTER VARYING(255),
     "enabled" boolean DEFAULT TRUE,
     "search_words" CHARACTER VARYING(50) DEFAULT NULL,
 
@@ -74,7 +73,7 @@ CREATE UNIQUE INDEX idx_goods_sn_unique ON goods (goods_sn);
 
 COMMENT ON TABLE goods IS '商品表';
 
-COMMENT ON COLUMN goods.id IS '商品ID';
+COMMENT ON COLUMN goods.id IS '商品ID';x
 
 COMMENT ON COLUMN goods.cid IS '商品分类ID';
 
@@ -112,6 +111,7 @@ CREATE TABLE goods_detail(
     "goods_id" INTEGER NOT NULL REFERENCES goods(id),
     "weight" NUMERIC(15, 2) NOT NULL DEFAULT 0.00,
     "size" CHARACTER VARYING(80),
+    "color" CHARACTER VARYING(80),
     "excerpt" text,
     "description" text,
     "free_shipping" boolean DEFAULT TRUE,
@@ -126,6 +126,7 @@ COMMENT ON TABLE goods_detail IS '商品详情表';
 COMMENT ON COLUMN goods_detail.weight IS '重量kg';
 
 COMMENT ON COLUMN goods_detail.size IS '大小尺寸';
+COMMENT ON COLUMN goods_detail.color IS '颜色';
 COMMENT ON COLUMN goods_detail.excerpt IS '商品摘要:规格与包装';
 COMMENT ON COLUMN goods_detail.description IS '商品描述';
 COMMENT ON COLUMN goods_detail.free_shipping IS '是否免运费,默认免运费true';
