@@ -66,7 +66,8 @@ pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection
                     data.insert("credit_code".to_string(), to_json(credit_code));
                 }
             }
-            html = to_html(html_name, data);
+            // html = to_html(html_name, data);
+            html = to_html_base(html_name, data);
         }
     } else {
         println!("没登录提示登录并跳转到登录页");

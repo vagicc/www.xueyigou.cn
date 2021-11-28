@@ -1,5 +1,5 @@
 use crate::session::Session;
-use crate::template::to_html;
+use crate::template::to_html_ad;
 use handlebars::to_json;
 use serde_json::value::Map;
 use warp::{Rejection, Reply};
@@ -21,7 +21,7 @@ pub async fn index(mut session: Session) -> ResultWarp<impl Reply> {
         data.insert("username".to_string(), to_json(username));
     }
     data.insert("title".to_string(), to_json("title传过来的值"));
-    let html = to_html("index.html", data);
+    let html = to_html_ad("index.html", data);
 
     let id = 32;
     if id != 0 {
