@@ -43,6 +43,8 @@ CREATE TABLE goods(
     "cost_price" MONEY NOT NULL DEFAULT 0,
     "market_price" MONEY NOT NULL DEFAULT 0,
     "sell_price" MONEY NOT NULL DEFAULT 0,
+    "donate_proportion" NUMERIC(4,2) NOT NULL DEFAULT 0.00,
+
     "sku" CHARACTER VARYING(10) NOT NULL,
     "inventory" INTEGER NOT NULL DEFAULT 0,
     "goods_img" CHARACTER VARYING(255),
@@ -73,7 +75,7 @@ CREATE UNIQUE INDEX idx_goods_sn_unique ON goods (goods_sn);
 
 COMMENT ON TABLE goods IS '商品表';
 
-COMMENT ON COLUMN goods.id IS '商品ID';x
+COMMENT ON COLUMN goods.id IS '商品ID';
 
 COMMENT ON COLUMN goods.cid IS '商品分类ID';
 
@@ -86,6 +88,7 @@ COMMENT ON COLUMN goods.cost_price IS '成本价';
 COMMENT ON COLUMN goods.market_price IS '市场价';
 
 COMMENT ON COLUMN goods.sell_price IS '销售价';
+COMMENT ON COLUMN goods.donate_proportion IS '捐赠比例：0为不捐赠、12.1为12.1%';
 
 COMMENT ON COLUMN goods.sku IS '计件单位:件,箱,个,包，……';
 
@@ -106,6 +109,20 @@ COMMENT ON COLUMN goods.down_time IS '下架时间';
 COMMENT ON COLUMN goods.create_id IS '上传者ID';
 COMMENT ON COLUMN goods.create_time IS '创建时间';
 
+
+CREATE TYPE goods_description_type AS ENUM ('PC','H5','APP');
+CREATE TABLE goods_description(
+    "id" SERIAL PRIMARY KEY,
+    "goods_id" INTEGER NOT NULL REFERENCES goods(id),
+    "type" goods_description_type DEFAULT 'PC'::goods_description_type,
+    "description" text
+);
+CREATE INDEX idx_goods_description_type ON goods_description USING btree(type);
+COMMENT ON COLUMN goods_description.goods_id IS '商品ID';
+COMMENT ON COLUMN goods_description.type IS '商品详情类型：PC、H5、APP';
+COMMENT ON COLUMN goods_description.description IS '商品详情描述';
+
+
 CREATE TABLE goods_detail(
     "id" SERIAL PRIMARY KEY,
     "goods_id" INTEGER NOT NULL REFERENCES goods(id),
@@ -113,7 +130,6 @@ CREATE TABLE goods_detail(
     "size" CHARACTER VARYING(80),
     "color" CHARACTER VARYING(80),
     "excerpt" text,
-    "description" text,
     "free_shipping" boolean DEFAULT TRUE,
     "seo_title" CHARACTER VARYING(255) DEFAULT NULL,
     "seo_keywords" CHARACTER VARYING(255) DEFAULT NULL,
@@ -122,13 +138,10 @@ CREATE TABLE goods_detail(
     "modify_time" TIMESTAMP WITHOUT time ZONE DEFAULT clock_timestamp()  
 );
 COMMENT ON TABLE goods_detail IS '商品详情表';
-
 COMMENT ON COLUMN goods_detail.weight IS '重量kg';
-
 COMMENT ON COLUMN goods_detail.size IS '大小尺寸';
 COMMENT ON COLUMN goods_detail.color IS '颜色';
 COMMENT ON COLUMN goods_detail.excerpt IS '商品摘要:规格与包装';
-COMMENT ON COLUMN goods_detail.description IS '商品描述';
 COMMENT ON COLUMN goods_detail.free_shipping IS '是否免运费,默认免运费true';
 COMMENT ON COLUMN goods_detail.seo_title IS 'SEO标题';
 COMMENT ON COLUMN goods_detail.seo_keywords IS 'SEO关键词';
