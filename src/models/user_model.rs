@@ -24,6 +24,27 @@ pub struct UserData {
     pub last_login: Option<NaiveDateTime>,
 }
 
+impl UserData {
+    /* 用户修改密码 */
+    pub fn change_passwd(mut self, new_passwd: &String, conn: &PgPooledConnection) -> Self {
+        // println!("old-user:{:#?}", self);
+
+        let new_salt = get_new_salt();
+        let sha1_passwd = encryption(new_passwd, &new_salt);
+
+        /* 把新密码更新到表 */
+        let updated_row = diesel::update(users.find(self.id))
+            .set((salt.eq(new_salt.clone()), password.eq(sha1_passwd.clone())))
+            .execute(conn)
+            .unwrap();
+
+        self.salt = Some(new_salt);
+        self.password = sha1_passwd;
+        // println!("new-user:{:#?}", self);
+        self
+    }
+}
+
 #[derive(Debug, Clone, Queryable, Deserialize, Serialize)]
 pub struct User {
     pub id: i32,
@@ -121,7 +142,7 @@ pub fn get_mobie(mobile_phone: &String, conn: &PgPooledConnection) -> Option<Use
     let query = users.filter(mobile.eq(mobile_phone));
 
     let sql = diesel::debug_query::<diesel::pg::Pg, _>(&query).to_string();
-    println!("查询SQL：{:?}", sql);
+    // println!("查询SQL：{:?}", sql);
 
     let result = query.first::<UserData>(conn);
     match result {
@@ -130,6 +151,22 @@ pub fn get_mobie(mobile_phone: &String, conn: &PgPooledConnection) -> Option<Use
         }
         Err(error) => {
             println!("打印出错误，还要排查无数据时是正常的");
+            return None;
+        }
+    }
+}
+
+pub fn find_user(user_id: i32, conn: &PgPooledConnection) -> Option<UserData> {
+    let query = users.find(user_id);
+    let sql = diesel::debug_query::<diesel::pg::Pg, _>(&query).to_string();
+    // println!("查询SQL：{:?}", sql);
+
+    let result = query.first::<UserData>(conn);
+
+    match result {
+        Ok(user) => Some(user),
+        Err(error) => {
+            println!("{}", error);
             return None;
         }
     }
@@ -165,9 +202,9 @@ pub fn verify_password(passwd: &String, user_salt: Option<String>, sha1_passwd: 
             sha1 = get_sha1(passwd);
         }
     }
-    println!("检验密码");
-    println!("{}", sha1);
-    println!("{}", sha1_passwd);
+    // println!("检验密码");
+    // println!("{}", sha1);
+    // println!("{}", sha1_passwd);
 
     if sha1.eq(sha1_passwd) {
         println!("密码正确");

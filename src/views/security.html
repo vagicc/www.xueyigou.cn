@@ -1,0 +1,87 @@
+{{#*inline "child"}}
+<section class="ce-content">
+    <div class="ce-left">
+        <img src="images/u_user_01.png" class="d-photo">
+        <h3>{{username}}</h3>
+        <ul>
+            <li><a href="javascript:;">我的订单</a></li>
+            <li><a href="javascript:;">我的收藏</a></li>
+            <li><a href="javascript:;">我的关注</a></li>
+            <li><a href="javascript:;">我的财务</a></li>
+            <li><a href="javascript:;">地址管理</a></li>
+            <li><a href="javascript:;">个人资料</a></li>
+            <li class="on"><a href="javascript:;">账号安全</a></li>
+        </ul>
+    </div>
+    <div class="ce-right">
+        <div class="centerrt centertabs">
+            <h3>账号安全</h3>
+        </div>
+        <div class="centerbd countsafe">
+            <ul class="infoblock">
+                <li class="ibline">
+                    <p class="ibline-l ibline-t">密码修改</p>
+                    <div class="ibline-r" style="color: red;">{{msg}}</div>
+                </li>
+                <form action="{{base_url}}settings/change_passwd" method="post">
+                    <li class="ibline">
+                        <p class="ibline-l">手机号</p>
+                        <div class="ibline-r">
+                            <input class="ibline-r comm-input cursornot" name="mobile" value="{{mobile}}" >
+                        </div>
+                    </li>
+                    <li class="ibline">
+                        <p class="ibline-l">原密码</p>
+                        <div class="ibline-r">
+                            <input class="ibline-r comm-input" name="old_passwd" value="" placeholder="请输入原密码"
+                                type="password" autocompelete="off">
+                        </div>
+                    </li>
+                    <li class="ibline">
+                        <p class="ibline-l">新密码</p>
+                        <div class="ibline-r">
+                            <input class="ibline-r comm-input" name="password" type="password" placeholder="请输入新密码"
+                                autocompelete="off">
+                        </div>
+                    </li>
+                    <li class="ibline">
+                        <p class="ibline-l">确认新密码</p>
+                        <div class="ibline-r">
+                            <input class="ibline-r comm-input" name="passwd" type="password" placeholder="请再次输入新密码"
+                                autocompelete="off">
+                        </div>
+                    </li>
+                    <li class="ibline">
+                        <div class="ibline-r">
+                            <button type="submit" class="commonbtn">保存</button>
+                        </div>
+                    </li>
+                </form>
+            </ul>
+            <ul class="infoblock">
+                <li class="ibline">
+                    <p class="ibline-l ibline-t">第三方账号绑定</p>
+                </li>
+                <li class="ibline">
+                    <p class="ibline-l">QQ</p>
+                    <div class="ibline-r">
+                        123456
+                        <a class="commonbtn" href="javascript:;">解绑</a>
+                        <a class="commonbtn" href="javascript:;">更换</a>
+                    </div>
+                </li>
+                <li class="ibline">
+                    <p class="ibline-l">微信</p>
+                    <div class="ibline-r">
+                        未绑定
+                        <a class="commonbtn" href="javascript:;">绑定</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/main.js"></script>
+{{/inline}}
+{{> (lookup this "parent")}}

@@ -4,6 +4,7 @@ use crate::routes::home_route;
 use crate::routes::link_route;
 use crate::routes::login_route;
 use crate::routes::logout_route;
+use crate::routes::settings_route;
 use crate::routes::signup_route;
 use crate::routes::test_route;
 use crate::session::create_session_filter;
@@ -20,6 +21,8 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
     let logout = logout_route::logout(pgsession.clone());
     let signup = signup_route::signup().or(signup_route::do_signup(pgsession.clone()));
 
+    let settings = settings_route::security(pgsession.clone())
+        .or(settings_route::change_passwd(pgsession.clone()));
     //资质申请
     let approve = approve_route::qualification(pgsession.clone())
         .or(approve_route::do_approve(pgsession.clone()));
@@ -35,6 +38,7 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(login)
         .or(logout)
         .or(signup)
+        .or(settings)
         .or(approve)
         .or(admin)
         .or(link)

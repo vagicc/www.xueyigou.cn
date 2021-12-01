@@ -37,6 +37,7 @@ pub async fn qualification(mut session: Session) -> Result<impl Reply, Rejection
             data.insert("title".to_string(), to_json("title传过来的值"));
             data.insert("user_id".to_string(), to_json(user.id));
             data.insert("user_type".to_string(), to_json(user.user_type));
+            data.insert("username".to_string(), to_json(&user.username));
             let option_approve = get_user_approve(user.id, session.db());
             if let Some(approve) = option_approve {
                 data.insert("status".to_string(), to_json(approve.status));

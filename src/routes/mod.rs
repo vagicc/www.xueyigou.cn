@@ -6,3 +6,4 @@ pub mod login_route;
 pub mod logout_route;
 pub mod signup_route;
 pub mod test_route;
+pub mod settings_route;

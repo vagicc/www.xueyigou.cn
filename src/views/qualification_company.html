@@ -5,32 +5,17 @@
 <section class="ce-content">
     <div class="ce-left">
         <img src="images/u_user_02.jpg" class="d-photo">
-        <h3>济南大学设计创新研究院</h3>
+        <h3>{{username}}</h3>
         <ul>
-            <li><a href="#">我的主页</a></li>
-            <li><a href="#">我的数据</a></li>
-            <li><a href="#">我的产品</a></li>
-            <li><a href="#">我的服务</a></li>
-            <li><a href="#">我的招聘</a></li>
-            <li><a href="#">我的收藏</a></li>
-            <li><a href="#">购买订单</a></li>
-            <li><a href="#">出售订单</a></li>
-            <li><a href="#">我的财务</a></li>
-            <li><a href="#">地址管理</a></li>
-            <li><a href="#">个人资料</a></li>
-            <li class="on"><a href="#">资质审核</a></li>
-            <li><a href="#">账号安全</a></li>
-        </ul>
-    </div>
-    <div class="ce-right">
-        <div class="centerrt centertabs">
-            <h3>资质{{status}}审核</h3>
-            {{#if status}}
-            <!--审核中-->
-            <div class="zztip zztip-01">
-                <strong>资质正在审核中！</strong>请稍后查看审核结果
-            </div>
-            {{/if}}
+            <li><a href="javascript:;">我的主页</a></li>
+            <li><a href="javascript:;">我的数据</a></li>
+            <li><a href="javascript:;">我的产品</a></li>
+            <li><a href="javascript:;">我的服务</a></li>
+            <li><a href="javascript:;">我的招聘</a></li>
+            <li><a href="javascript:;">我的收藏</a></li>
+            <li><a href="javascript:;">购买订单</a></li>
+            <li><a href="javascript:;">出售订单</a></li>{{#*inline "child"}}
+
         </div>
         {{#unless real_name}}
         <!--未提交-->
