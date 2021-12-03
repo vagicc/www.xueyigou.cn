@@ -74,28 +74,17 @@ CREATE INDEX idx_goods_goods_sn ON goods USING btree(goods_sn);
 CREATE UNIQUE INDEX idx_goods_sn_unique ON goods (goods_sn);
 
 COMMENT ON TABLE goods IS '商品表';
-
 COMMENT ON COLUMN goods.id IS '商品ID';
-
 COMMENT ON COLUMN goods.cid IS '商品分类ID';
-
 COMMENT ON COLUMN goods.goods_name IS '商品名称';
-
 COMMENT ON COLUMN goods.goods_sn IS '商品货号';
-
 COMMENT ON COLUMN goods.cost_price IS '成本价';
-
 COMMENT ON COLUMN goods.market_price IS '市场价';
-
 COMMENT ON COLUMN goods.sell_price IS '销售价';
 COMMENT ON COLUMN goods.donate_proportion IS '捐赠比例：0为不捐赠、12.1为12.1%';
-
 COMMENT ON COLUMN goods.sku IS '计件单位:件,箱,个,包，……';
-
 COMMENT ON COLUMN goods.inventory IS '库存';
-
 COMMENT ON COLUMN goods.goods_img IS '封面图(176*255)-列表显示的图片(外框width:201px;height:275px;)';
-
 COMMENT ON COLUMN goods.enabled IS '是否在售：false为下架，true在售，unknown预定';
 COMMENT ON COLUMN goods.search_words IS '商品搜索词库,逗号分隔';
 
@@ -103,6 +92,7 @@ COMMENT ON COLUMN goods.visit IS '浏览次数';
 COMMENT ON COLUMN goods.sale IS '销量';
 COMMENT ON COLUMN goods.comments IS '评论次数';
 COMMENT ON COLUMN goods.grade IS '评分总数';
+
 COMMENT ON COLUMN goods.up_time IS '上架时间';
 COMMENT ON COLUMN goods.down_time IS '下架时间';
 

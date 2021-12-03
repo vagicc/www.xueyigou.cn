@@ -2,7 +2,7 @@ use crate::db;
 use diesel;
 use diesel::prelude::*;
 
-#[derive(Debug, Queryable)]
+#[derive(Debug, Clone, Queryable)]
 pub struct Admin {
     pub id: i32,
     pub username: String,
