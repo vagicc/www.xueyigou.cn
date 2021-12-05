@@ -1,5 +1,6 @@
 use crate::routes::admin_route;
 use crate::routes::approve_route;
+use crate::routes::goods_route;
 use crate::routes::home_route;
 use crate::routes::link_route;
 use crate::routes::login_route;
@@ -33,6 +34,10 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(test_route::multipart_form())
         .or(test_route::do_multipart_form());
 
+    // 商品列表：goods/list  商品详情：goods/detail/id
+    // 发布服务：goods/create/virtual  发布商品：goods/create
+    let goods = goods_route::create_virtual(pgsession.clone());
+
     let routes = home
         .or(dir)
         .or(login)
@@ -40,6 +45,7 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(signup)
         .or(settings)
         .or(approve)
+        .or(goods)
         .or(admin)
         .or(link)
         .or(test);

@@ -49,6 +49,7 @@ CREATE TABLE goods(
     "inventory" INTEGER NOT NULL DEFAULT 0,
     "goods_img" CHARACTER VARYING(255),
     "enabled" boolean DEFAULT TRUE,
+    "is_virtual" BOOLEAN DEFAULT FALSE,
     "search_words" CHARACTER VARYING(50) DEFAULT NULL,
 
     "visit" bigint NOT NULL DEFAULT 0,
@@ -86,6 +87,7 @@ COMMENT ON COLUMN goods.sku IS '计件单位:件,箱,个,包，……';
 COMMENT ON COLUMN goods.inventory IS '库存';
 COMMENT ON COLUMN goods.goods_img IS '封面图(176*255)-列表显示的图片(外框width:201px;height:275px;)';
 COMMENT ON COLUMN goods.enabled IS '是否在售：false为下架，true在售，unknown预定';
+COMMENT ON COLUMN goods.is_virtual IS '是否为虚拟商品：false为实体商品（需要快递），true为虚拟商品（发货不需要快递）';
 COMMENT ON COLUMN goods.search_words IS '商品搜索词库,逗号分隔';
 
 COMMENT ON COLUMN goods.visit IS '浏览次数';

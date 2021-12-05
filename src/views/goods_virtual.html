@@ -1,0 +1,137 @@
+{{#*inline "child"}}
+<section class="ce-content">
+    <div class="ce-left">
+        <img src="images/u_user_02.jpg" class="d-photo">
+        <h3>济南大学设计创新研究院</h3>
+        <ul>
+            <li><a href="#">我的主页</a></li>
+            <li><a href="#">我的数据</a></li>
+            <li><a href="#">我的产品</a></li>
+            <li class="on"><a href="#">我的服务</a></li>
+            <li><a href="#">我的招聘</a></li>
+            <li><a href="#">我的收藏</a></li>
+            <li><a href="#">购买订单</a></li>
+            <li><a href="#">出售订单</a></li>
+            <li><a href="#">我的财务</a></li>
+            <li><a href="#">地址管理</a></li>
+            <li><a href="#">个人资料</a></li>
+            <li><a href="#">资质审核</a></li>
+            <li><a href="#">账号安全</a></li>
+        </ul>
+    </div>
+    <div class="ce-right">
+        <div class="centerrt centertabs">
+            <h3>服务发布</h3>
+        </div>
+        <form class="centerbd">
+            <div class="fbline">
+                <input class="comm-input fbinput-01" placeholder="请输入服务名称（必填）">
+            </div>
+            <div class="fbline">
+                <div class="fbinput-h comm-input filestyle">
+                    <p>请上传封面图,推荐尺寸224*168像素</p>
+                    <i class="iconfont icon-selfile">浏览</i>
+                    <input type="file">
+                </div>
+                <div class="work-type fbinput-h comm-input iconfont icon-three">
+                    <p>请选择服务类别（必填）</p>
+                    <ul>
+                        <li data-type="1">文学</li>
+                        <li data-type="2">理学</li>
+                        <li data-type="3">工学</li>
+                        <li data-type="4">艺术学</li>
+                        <li data-type="5">其他学科</li>
+                    </ul>
+                </div>
+                <input type="hidden" class="works-type">
+            </div>
+            <div class="fbline">
+                <input class="comm-input fbinput-h" placeholder="请输入服务价格（必填）">
+                <input class="comm-input fbinput-h" placeholder="请输入专业" style="margin-left:auto;">
+            </div>
+            <div class="ibline fbline-flex">
+                <div>捐赠比例：</div>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="0">不捐赠
+                </label>
+                <label class="cur-po">
+                    <input type="radio" checked="checked" name="jzbl" value="5">5%
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="10">10%
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="15">15%
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="20">20%
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="25">25%
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="jzbl" value="30">30%
+                </label>
+            </div>
+            <div class="ibline">
+                <h3 class="mtitle">移动端详情内容</h3>
+            </div>
+            <div class="fbline">
+                <div class="fbinput-all comm-input filestyle">
+                    <p>请上传详情视频</p>
+                    <i class="iconfont icon-selfile">浏览</i>
+                    <input type="file">
+                </div>
+            </div>
+            <button type="button" class="commonbtn m-b-20" onclick="addmpic()">+ 增加详情图片</button>
+            <div class="m-piccontent">
+                <li class="ibline">
+                    <div class="ibline-r-670 comm-input filestyle ibline-r-o">
+                        <p>uploadfile/2021/0816/20210816100514756.jpg</p>
+                        <i class="iconfont icon-selfile">浏览</i>
+                        <input type="file">
+                    </div>
+                    <p class="ibline-l ibline-l-o"><span class="searchclose iconfont icon-close"
+                            onclick="deletempic(this)"></span></p>
+                </li>
+            </div>
+            <div class="fbline">
+                <textarea class="fbinput-01 comm-input" rows="2" placeholder="移动端简介"></textarea>
+            </div>
+            <div class="ibline">
+                <h3 class="mtitle">PC端详情内容</h3>
+            </div>
+            <div class="fbline">
+                <div id="editormd">
+                    <textarea style="display:none;"></textarea>
+                </div>
+            </div>
+            <div class="ibline fbline-flex">
+                <div>上架状态：</div>
+                <label class="cur-po">
+                    <input type="radio" checked="checked" name="state" value="1">上架
+                </label>
+                <label class="cur-po">
+                    <input type="radio" name="state" value="2">下架
+                </label>
+                <div class="fbtime">发布时间：</div>
+                <input class="comm-input" id="time" data-enable-time="true">
+            </div>
+            <button type="submit" class="commonbtn">+ 发布服务</button>
+        </form>
+    </div>
+</section>
+<link rel="stylesheet" href="editormd/css/editormd.css">
+<link rel="stylesheet" href="style/flatpickr.min.css">
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/centeru06.js"></script>
+<script src="js/centerd0202.js"></script>
+<script src="editormd/editormd.min.js"></script>
+<script src="js/flatpickr.min.js"></script>
+<script src="js/flatpickr.l10n.zh.js"></script>
+<div class="modelbox"></div>
+<div class="mark2" onclick="confirmhide()"></div>
+
+{{/inline}}
+{{> (lookup this "parent")}}

@@ -27,6 +27,7 @@ table! {
         inventory -> Int4,
         goods_img -> Nullable<Varchar>,
         enabled -> Nullable<Bool>,
+        is_virtual -> Nullable<Bool>,
         search_words -> Nullable<Varchar>,
         visit -> Int8,
         sale -> Int4,
