@@ -4,9 +4,9 @@
 <section class="indexadd">
     <div class="banner swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><a href="#"><img src="images/u_banner.jpg"></a></div>
-            <div class="swiper-slide"><a href="#"><img src="images/u_banner.jpg"></a></div>
-            <div class="swiper-slide"><a href="#"><img src="images/u_banner.jpg"></a></div>
+            {{#each banners}}
+                <div class="swiper-slide"><a href="{{this.hyperlink}}"><img src="{{this.image_url}}"></a></div>
+            {{/each}}
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -24,460 +24,61 @@
     <div class="iwcont swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide swiper-slide-visible swiper-slide-active">
+                {{#each works_new}}
                 <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
+                    <a href="#" class="plink"><img src="{{this.image_url}}"></a>
                     <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
+                        <p class="iwltt"><a href="#">{{this.works_title}}</a></p>
+                        <p class="iwltc m-b-10">{{this.label}}</p>
                         <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
+                            <i class="iconfont icon-view">{{this.watch}}</i>
+                            <i class="iconfont icon-like">{{this.like}}</i>
                         </p>
                         <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
+                            <a href="#"><img src="{{this.avatar}}">{{this.username}}</a>
                             <span>1天前</span>
                         </div>
                     </div>
                 </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
             <div class="swiper-slide">
+                {{#each works_hot}}
                 <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
+                    <a href="#" class="plink"><img src="{{this.image_url}}"></a>
                     <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
+                        <p class="iwltt"><a href="#">{{this.works_title}}</a></p>
+                        <p class="iwltc m-b-10">{{this.label}}</p>
                         <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
+                            <i class="iconfont icon-view">{{this.watch}}</i>
+                            <i class="iconfont icon-like">{{this.like}}</i>
                         </p>
                         <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
+                            <a href="#"><img src="{{this.avatar}}">{{this.username}}</a>
                             <span>1天前</span>
                         </div>
                     </div>
                 </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
             <div class="swiper-slide">
+                {{#each works_official}}
                 <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
+                    <a href="#" class="plink"><img src="{{this.image_url}}"></a>
                     <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
+                        <p class="iwltt"><a href="#">{{this.works_title}}</a></p>
+                        <p class="iwltc m-b-10">{{this.label}}</p>
                         <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
+                            <i class="iconfont icon-view">{{this.watch}}</i>
+                            <i class="iconfont icon-like">{{this.like}}</i>
                         </p>
                         <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
+                            <a href="#"><img src="{{this.avatar}}">{{this.username}}</a>
                             <span>1天前</span>
                         </div>
                     </div>
                 </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="iwlist">
-                    <a href="#" class="plink"><img src="images/u_w1.jpg"></a>
-                    <div class="iwlt">
-                        <p class="iwltt"><a href="#">嘻螺会·浓汤螺蛳粉</a></p>
-                        <p class="iwltc m-b-10">工学</p>
-                        <p class="iwlti">
-                            <i class="iconfont icon-view">6466</i>
-                            <i class="iconfont icon-like">996</i>
-                        </p>
-                        <div class="iwauthor m-t-15">
-                            <a href="#"><img src="images/u_user_01.png">大学生王</a>
-                            <span>1天前</span>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
@@ -491,66 +92,20 @@
                 <a href="#"><img src="images/s_isleft.jpg"></a>
             </aside>
             <div class="isright">
+
+                {{#each csinfos}}
                 <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
+                    <a href="{{this.hyperlink}}" class="olink"><img src="{{this.image_url}}"></a>
                     <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
+                        <a href="{{this.hyperlink}}" class="islt">{{this.cs_name}}</a>
+                        <p class="islp" id="cs{{this.id}}"><span>{{this.hour_wage}}</span> /小时&nbsp;<span>{{this.day_wage}}</span> /天&nbsp;<span>{{this.month_wage}}</span> /月</p>
+                        <p class="islb" id="cslabel{{this.id}}">
+                            <span>{{this.label}}</span></p>
+                        <a href="{{this.hyperlink}}" class="isbtn iconfont icon-arr-r"></a>
                     </div>
                 </div>
-                <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
-                    <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
-                    </div>
-                </div>
-                <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
-                    <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
-                    </div>
-                </div>
-                <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
-                    <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
-                    </div>
-                </div>
-                <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
-                    <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
-                    </div>
-                </div>
-                <div class="islist">
-                    <a href="#" class="olink"><img src="images/u_s1.jpg"></a>
-                    <div class="isltext">
-                        <a href="#" class="islt">国潮插画设计定制服务</a>
-                        <p class="islp"><span>200</span> /小时&nbsp;<span>12K</span> /天&nbsp;<span>12k</span> /月</p>
-                        <p class="islb">
-                            <span>高效</span><span>性价比</span><span>随时接单</span><span>包满意</span><span>复购</span></p>
-                        <a href="#" class="isbtn iconfont icon-arr-r"></a>
-                    </div>
-                </div>
+                {{/each}}
+
             </div>
         </div>
     </div>
@@ -569,129 +124,59 @@
         <div class="igcont swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide swiper-slide-visible swiper-slide-active">
+
+                    {{#each public_welfare_info}}
                     <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
+                        <a href="{{this.hyperlink}}" class="glink"><img src="{{this.image_url}}"></a>
                         <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
+                            <a href="{{this.hyperlink}}" class="iglt"><span
+                                    class="newtip" id="pwi{{this.id}}">{{this.is_new}}</span>{{this.info_title}}</a>
                             <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
+                                <i class="iconfont icon-time">{{this.date}}</i>
+                                <i class="iconfont icon-view">{{this.watch}}</i>
                             </p>
                         </div>
                     </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt">六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
+                    {{/each}}
+
                     <div class="iglist igadd">
                         <a href="#" class="glink"><img src="images/u_add2.jpg"></a>
                     </div>
                 </div>
+
                 <div class="swiper-slide">
+
+                    {{#each public_welfare_object}}
                     <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
+                        <a href="{{this.hyperlink}}" class="glink"><img src="{{this.image_url}}"></a>
                         <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
+                            <a href="{{this.hyperlink}}" class="iglt"><span
+                                    class="newtip" id="pwo{{this.id}}">{{this.is_new}}</span>{{this.info_title}}</a>
                             <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
+                                <i class="iconfont icon-time">{{this.date}}</i>
+                                <i class="iconfont icon-view">{{this.watch}}</i>
                             </p>
                         </div>
                     </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt">六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt">六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
+                    {{/each}}
+
                 </div>
                 <div class="swiper-slide">
+
+                    {{#each public_welfare_active}}
                     <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
+                        <a href="{{this.hyperlink}}" class="glink"><img src="{{this.image_url}}"></a>
                         <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
+                            <a href="{{this.hyperlink}}" class="iglt"><span
+                                    class="newtip" id="pwa{{this.id}}">{{this.is_new}}</span>{{this.info_title}}</a>
                             <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
+                                <i class="iconfont icon-time">{{this.date}}</i>
+                                <i class="iconfont icon-view">{{this.watch}}</i>
                             </p>
                         </div>
                     </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt"><span
-                                    class="newtip">NEW</span>六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt">六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="iglist">
-                        <a href="#" class="glink"><img src="images/u_g1.jpg"></a>
-                        <div class="igltext">
-                            <a href="#" class="iglt">六一全国公益组织联合发声：让这些善良、勇敢、坚韧的孩子们被爱守护！</a>
-                            <p class="iglp">
-                                <i class="iconfont icon-time">2021 / 06 / 04</i>
-                                <i class="iconfont icon-view">1229</i>
-                            </p>
-                        </div>
-                    </div>
+                    {{/each}}
+
                 </div>
             </div>
         </div>
@@ -702,78 +187,22 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学艺购是中国创新企业基因中的一个独特性的服务型平台，在众多互联网领军当中，秉承着学生时代与社会公益服务的承接者。<img
                 src="images/s_ir.png" class="s_ig"></p>
         <div class="ircont">
+
+            {{#each honorinfos}}
             <div class="irlist">
                 <div class="irtop">
-                    <span class="pmtip">01</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
+                    <span class="pmtip">0{{this.id}}</span>
+                    <img src="{{this.image_url}}" class="ir_pic">
                     <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
+                        <p class="irtrp">{{this.honor_name}}</p>
+                        <p class="iconfont icon-jb" id="hi{{this.id}}">{{this.detail}}</p>
                     </div>
                 </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
+                <a class="irbot iconfont icon-arr-r" href="{{this.hyper_url}}"></a>
             </div>
-            <div class="irlist">
-                <div class="irtop">
-                    <span class="pmtip">02</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
-                    <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
-                    </div>
-                </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
-            </div>
-            <div class="irlist">
-                <div class="irtop">
-                    <span class="pmtip">03</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
-                    <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
-                    </div>
-                </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
-            </div>
-            <div class="irlist">
-                <div class="irtop">
-                    <span class="pmtip">04</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
-                    <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
-                    </div>
-                </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
-            </div>
-            <div class="irlist">
-                <div class="irtop">
-                    <span class="pmtip">05</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
-                    <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
-                    </div>
-                </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
-            </div>
-            <div class="irlist">
-                <div class="irtop">
-                    <span class="pmtip">06</span>
-                    <img src="images/u_user_01.png" class="ir_pic">
-                    <div class="irtr">
-                        <p class="irtrp">女帝汉库克</p>
-                        <p class="iconfont icon-jb"><span>12</span> 枚学艺购奖章</p>
-                        <p class="iconfont icon-jb"><span>2885</span> 公益贡献值</p>
-                    </div>
-                </div>
-                <a class="irbot iconfont icon-arr-r" href="#"></a>
-            </div>
+            {{/each}}
+
+
             <div class="clear"></div>
         </div>
     </div>
@@ -816,6 +245,73 @@
 <script src="js/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/index.js"></script>
+<script>
+    {{#each csinfos}}
+        Array.from(document.getElementById('cs{{this.id}}').children).forEach(numFix);
+        Array.from(document.getElementById('cslabel{{this.id}}').children).forEach(labelFix);
+
+    {{/each}}
+
+        function numFix(item){
+        item.innerHTML = Number(item.innerHTML).toFixed(2);
+        }
+        function labelFix(item){
+          //  console.log(item)
+            item.innerHTML.split(",").forEach(function (tmp){
+                $("<span>"+tmp+"</span>").appendTo(item.parentElement);
+           //     console.log(item)
+            })
+            $(item).first().remove();
+        }
+    {{#each public_welfare_info}}
+        console.log(document.getElementById('pwi{{this.id}}').innerHTML)
+        if(Boolean(document.getElementById('pwi{{this.id}}').innerHTML)){
+            document.getElementById('pwi{{this.id}}').innerHTML = "New"
+        }else
+        {
+            document.getElementById('pwi{{this.id}}').innerHTML = ""
+        }
+    {{/each}}
+    {{#each public_welfare_object}}
+    console.log(document.getElementById('pwo{{this.id}}').innerHTML)
+    if(Boolean(document.getElementById('pwo{{this.id}}').innerHTML)){
+        document.getElementById('pwo{{this.id}}').innerHTML = "New"
+    }else
+    {
+        document.getElementById('pwo{{this.id}}').innerHTML = ""
+    }
+    {{/each}}
+    {{#each public_welfare_active}}
+    console.log(document.getElementById('pwa{{this.id}}').innerHTML)
+    if(Boolean(document.getElementById('pwa{{this.id}}').innerHTML)){
+        document.getElementById('pwa{{this.id}}').innerHTML = "New"
+    }else
+    {
+        document.getElementById('pwa{{this.id}}').innerHTML = ""
+    }
+    {{/each}}
+    {{#each honorinfos}}
+
+
+            console.log( document.getElementById('hi{{this.id}}').innerHTML)
+            document.getElementById('hi{{this.id}}').innerHTML.split(",").forEach(function (tmp){
+
+                console.log(tmp)
+                let inner = tmp.split(".")
+                if(inner[1]){
+                    $("<p  class=\"iconfont icon-jb\"><span>"+inner[0]+"</span>"+inner[1]+"</p>").appendTo(document.getElementById('hi{{this.id}}').parentElement);
+                }else{
+                    $("<p  class=\"iconfont icon-jb\"><span>"+inner[0]+"</span></p>").appendTo(document.getElementById('hi{{this.id}}').parentElement);
+                }
+
+
+                console.log(document.getElementById('hi{{this.id}}'))
+            })
+            $("#hi{{this.id}}").remove();
+
+
+    {{/each}}
+</script>
 
 
 

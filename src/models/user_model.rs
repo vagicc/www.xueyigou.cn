@@ -10,7 +10,7 @@ use log::error;
 use serde::{Deserialize, Serialize};
 use sha1::Sha1;
 
-#[derive(Debug, Clone, Queryable)]
+#[derive(Debug, Clone, Queryable, Serialize)]
 pub struct UserData {
     pub id: i32,
     pub email: Option<String>,
@@ -22,6 +22,7 @@ pub struct UserData {
     pub salt: Option<String>,
     pub create_time: Option<NaiveDateTime>,
     pub last_login: Option<NaiveDateTime>,
+    pub avatar: Option<String>,
 }
 
 impl UserData {
