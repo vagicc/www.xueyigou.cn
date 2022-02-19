@@ -23,15 +23,15 @@
         <div class="centerrt centertabs">
             <h3>服务发布</h3>
         </div>
-        <form class="centerbd">
+        <form class="centerbd" action="{{base_url}}goods/create/virtual" method="post" enctype="multipart/form-data" >
             <div class="fbline">
-                <input class="comm-input fbinput-01" placeholder="请输入服务名称（必填）">
+                <input name="goods_name" class="comm-input fbinput-01" placeholder="请输入服务名称（必填）">
             </div>
             <div class="fbline">
                 <div class="fbinput-h comm-input filestyle">
                     <p>请上传封面图,推荐尺寸224*168像素</p>
                     <i class="iconfont icon-selfile">浏览</i>
-                    <input type="file">
+                    <input name="goods_img" type="file">
                 </div>
                 <div class="work-type fbinput-h comm-input iconfont icon-three">
                     <p>请选择服务类别（必填）</p>
@@ -43,10 +43,10 @@
                         <li data-type="5">其他学科</li>
                     </ul>
                 </div>
-                <input type="hidden" class="works-type">
+                <input name="cid" type="hidden" class="works-type">
             </div>
             <div class="fbline">
-                <input class="comm-input fbinput-h" placeholder="请输入服务价格（必填）">
+                <input name="sell_price" class="comm-input fbinput-h" placeholder="请输入服务价格（必填）">
                 <input class="comm-input fbinput-h" placeholder="请输入专业" style="margin-left:auto;">
             </div>
             <div class="ibline fbline-flex">
@@ -89,7 +89,7 @@
                     <div class="ibline-r-670 comm-input filestyle ibline-r-o">
                         <p>uploadfile/2021/0816/20210816100514756.jpg</p>
                         <i class="iconfont icon-selfile">浏览</i>
-                        <input type="file">
+                        <input name="goods_photo[]" type="file">
                     </div>
                     <p class="ibline-l ibline-l-o"><span class="searchclose iconfont icon-close"
                             onclick="deletempic(this)"></span></p>

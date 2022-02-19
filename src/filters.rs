@@ -36,7 +36,8 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
 
     // 商品列表：goods/list  商品详情：goods/detail/id
     // 发布服务：goods/create/virtual  发布商品：goods/create
-    let goods = goods_route::create_virtual(pgsession.clone());
+    let goods = goods_route::create_virtual(pgsession.clone())
+        .or(goods_route::do_virtual(pgsession.clone()));
 
     let routes = home
         .or(dir)

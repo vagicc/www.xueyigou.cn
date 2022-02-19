@@ -14,6 +14,29 @@ table! {
 }
 
 table! {
+    banners (id) {
+        id -> Int4,
+        banner_name -> Nullable<Varchar>,
+        image_url -> Varchar,
+        hyperlink -> Nullable<Varchar>,
+        is_enabled -> Bool,
+    }
+}
+
+table! {
+    customized_services (id) {
+        id -> Int8,
+        cs_name -> Varchar,
+        hour_wage -> Float4,
+        day_wage -> Float4,
+        month_wage -> Float4,
+        label -> Nullable<Varchar>,
+        image_url -> Varchar,
+        is_enabled -> Bool,
+    }
+}
+
+table! {
     goods (id) {
         id -> Int4,
         cid -> Nullable<Int4>,
@@ -63,6 +86,7 @@ table! {
         id -> Int4,
         goods_id -> Int4,
         #[sql_name = "type"]
+        // type_ -> Nullable<Goods_description_type>,
         type_ -> Nullable<Varchar>,
         description -> Nullable<Text>,
     }
@@ -102,6 +126,31 @@ table! {
 }
 
 table! {
+    honor (id) {
+        id -> Int8,
+        honor_name -> Varchar,
+        detail -> Nullable<Varchar>,
+        image_url -> Varchar,
+        hyper_url -> Nullable<Varchar>,
+        is_enabled -> Bool,
+    }
+}
+
+table! {
+    index_works (id) {
+        id -> Int8,
+        works_title -> Varchar,
+        watch -> Int4,
+        like -> Int4,
+        image_url -> Varchar,
+        label -> Nullable<Varchar>,
+        is_enable -> Bool,
+        work_type -> Int2,
+        user_id -> Int4,
+    }
+}
+
+table! {
     linksnap (id) {
         id -> Int4,
         title -> Varchar,
@@ -111,62 +160,16 @@ table! {
 }
 
 table! {
-    menus (id) {
-        id -> Int4,
-        order_by -> Int2,
-        class -> Nullable<Varchar>,
-        method -> Nullable<Varchar>,
-        name -> Varchar,
-        level -> Nullable<Int2>,
-        parent -> Nullable<Int2>,
-        icon -> Nullable<Varchar>,
-        department -> Nullable<Varchar>,
-        is_show -> Nullable<Bool>,
-    }
-}
-
-table! {
-    record (record_time) {
-        id -> Int4,
-        table_id -> Int4,
-        table_name -> Varchar,
-        user_id -> Int4,
-        username -> Varchar,
-        action -> Varchar,
-        ip -> Inet,
-        record_time -> Timestamp,
-    }
-}
-
-table! {
-    record_2021_10to12 (record_time) {
-        id -> Int4,
-        table_id -> Int4,
-        table_name -> Varchar,
-        user_id -> Int4,
-        username -> Varchar,
-        action -> Varchar,
-        ip -> Inet,
-        record_time -> Timestamp,
-    }
-}
-
-table! {
-    rights (right_id) {
-        right_id -> Int4,
-        right_name -> Nullable<Varchar>,
-        right_class -> Nullable<Varchar>,
-        right_method -> Nullable<Varchar>,
-        right_detail -> Nullable<Varchar>,
-    }
-}
-
-table! {
-    roles (id) {
-        id -> Int4,
-        name -> Varchar,
-        rights -> Nullable<Varchar>,
-        default -> Nullable<Varchar>,
+    public_welfare (id) {
+        id -> Int8,
+        info_title -> Varchar,
+        date -> Date,
+        watch -> Int4,
+        image_url -> Varchar,
+        hyperlink -> Nullable<Varchar>,
+        is_new -> Nullable<Bool>,
+        is_enable -> Bool,
+        welfare_type -> Int2,
     }
 }
 
@@ -208,82 +211,15 @@ table! {
         mobile -> Nullable<Bpchar>,
         username -> Varchar,
         realname -> Nullable<Varchar>,
+        avatar -> Nullable<Varchar>,
         user_type -> Int2,
         password -> Varchar,
         salt -> Nullable<Bpchar>,
         create_time -> Nullable<Timestamp>,
         last_login -> Nullable<Timestamp>,
-        avatar -> Nullable<Varchar>,
     }
 }
 
-table! {
-    banners (id) {
-        id -> Int4,
-        banner_name -> Nullable<Varchar>,
-        image_url -> Varchar,
-        hyperlink -> Nullable<Varchar>,
-        is_enabled -> Bool,
-    }
-}
-
-table! {
-    index_works(id) {
-        id -> Int8,
-        works_title -> Varchar,
-        watch -> Int4,
-        like -> Int4,
-        image_url -> Varchar,
-        label -> Nullable<Varchar>,
-        is_enable -> Bool,
-        work_type -> Int2,
-        user_id -> Int4,
-    }
-}
-
-
-table! {
-    public_welfare(id) {
-        id -> Int8,
-        info_title -> Varchar,
-        date -> Date,
-        watch -> Int4,
-        image_url -> Varchar,
-        hyperlink -> Nullable<Varchar>,
-        is_new -> Nullable<Bool>,
-        is_enable -> Bool,
-        welfare_type -> Int2,
-    }
-}
-
-table! {
-    customized_services(id) {
-        id -> Int8,
-        cs_name -> Varchar,
-        hour_wage -> Float4,
-        day_wage -> Float4,
-        month_wage -> Float4,
-        label -> Nullable<Varchar>,
-        image_url -> Varchar,
-        is_enabled -> Bool,
-    }
-}
-
-table! {
-    honor(id) {
-        id -> Int8,
-        honor_name -> Varchar,
-        detail -> Nullable<Varchar>,
-        image_url -> Varchar,
-        hyper_url -> Nullable<Varchar>,
-        is_enabled -> Bool,
-    }
-}
-
-
-
-
-joinable!(index_works -> users (user_id));
 joinable!(goods -> goods_category (cid));
 joinable!(goods_description -> goods (goods_id));
 joinable!(goods_detail -> goods (goods_id));
@@ -292,19 +228,18 @@ joinable!(sessions -> users (user_id));
 
 allow_tables_to_appear_in_same_query!(
     admins,
+    banners,
+    customized_services,
     goods,
     goods_category,
     goods_description,
     goods_detail,
     goods_photo,
+    honor,
+    index_works,
     linksnap,
-    menus,
-    record,
-    record_2021_10to12,
-    rights,
-    roles,
+    public_welfare,
     sessions,
     to_approve,
     users,
-    index_works,
 );

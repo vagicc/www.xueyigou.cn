@@ -17,12 +17,12 @@ pub struct UserData {
     pub mobile: Option<String>,
     pub username: String,
     pub realname: Option<String>,
+    pub avatar: Option<String>,
     pub user_type: i16,
     pub password: String,
     pub salt: Option<String>,
     pub create_time: Option<NaiveDateTime>,
     pub last_login: Option<NaiveDateTime>,
-    pub avatar: Option<String>,
 }
 
 impl UserData {

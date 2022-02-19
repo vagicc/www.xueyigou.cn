@@ -54,7 +54,9 @@ elapse@elapse-PC:/luck/Language/Rust/warp-wiki$
           diesel migration run
 重做（等同于上面两条）：diesel migration redo
 上面命令，只能运行、还原或重做一次迁移
-重做所有迁移：diesel migration redo all
+重做所有迁移：diesel migration redo all  ----这条是无法执行，无此项
+要重做所有的迁移：diesel database reset 
+diesel database reset 这条命令执行后会删除数据库，然后按照迁移文件创建数据库和表等。
 -------------------------------------------------------------------------------
 ===============================================================================
 查询条件看：src/expression_methods/global_expression_methods.rs

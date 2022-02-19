@@ -5,6 +5,7 @@ CREATE TABLE users(
     "mobile" CHARACTER(11) DEFAULT NULL,
     "username" CHARACTER VARYING(50) NOT NULL,
     "realname" VARCHAR DEFAULT NULL,
+    "avatar" VARCHAR(100) DEFAULT NULL,
     "user_type" SMALLINT NOT NULL DEFAULT 1,
     "password" CHARACTER VARYING(40) NOT NULL,
     "salt" CHARACTER(10) DEFAULT NULL,
@@ -18,6 +19,7 @@ COMMENT ON COLUMN users.email IS '邮箱';
 COMMENT ON COLUMN users.mobile IS '手机号码';
 COMMENT ON COLUMN users.username IS '会员名';
 COMMENT ON COLUMN users.realname IS '真实姓名';
+COMMENT ON COLUMN "users"."avatar" IS '头像';
 COMMENT ON COLUMN users.user_type IS '用户类型：1普通用户；2设计师用户；3企业用户';
 
 CREATE TABLE sessions(

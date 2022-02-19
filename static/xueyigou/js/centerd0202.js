@@ -71,7 +71,7 @@ $(document).ready(function(){
     /*addmpic*/
 })
 function addmpic (){
-    $(".m-piccontent").append('<li class="ibline"><div class="ibline-r-670 comm-input filestyle ibline-r-o"><p>请上传详情图片</p><i class="iconfont icon-selfile">浏览</i><input type="file"></div><p class="ibline-l ibline-l-o"><span class="searchclose iconfont icon-close" onclick="deletempic(this)"></span></p></li>');
+    $(".m-piccontent").append('<li class="ibline"><div class="ibline-r-670 comm-input filestyle ibline-r-o"><p>请上传详情图片</p><i class="iconfont icon-selfile">浏览</i><input name="goods_photo[]" type="file"></div><p class="ibline-l ibline-l-o"><span class="searchclose iconfont icon-close" onclick="deletempic(this)"></span></p></li>');
     $(".filestyle").on("change","input[type='file']",uploadpic)
 }
 function deletempic ($this){
